@@ -38,6 +38,8 @@ int Application::Run()
         m_deltaTime = (double)(time2-time1)/CLOCKS_PER_SEC;
         m_fps = 1/m_deltaTime;
 
+        bool lMouseDown = false;
+
         while (SDL_PollEvent(&m_windowEvent))
         {
             switch (m_windowEvent.type)
@@ -51,16 +53,23 @@ int Application::Run()
                     if (m_windowEvent.key.keysym.sym == SDLK_ESCAPE)
                         m_running = false;
                     break;
+
+                case SDL_MOUSEBUTTONDOWN:
+                    if(m_windowEvent.button.button == SDL_BUTTON_LEFT)
+                        lMouseDown = true;
+                    break;
             }
 
             Event(m_windowEvent);
         }
 
-        SDL_GetMouseState(&m_mouseX, &m_mouseY); 
+        m_mouseState.lBtnDown = lMouseDown;
+        SDL_GetMouseState(&m_mouseState.x, &m_mouseState.y); 
+
         if (!WINDOWS)
         {
-            m_mouseX *= 2;
-            m_mouseY *= 2;   
+            m_mouseState.x *= 2;
+            m_mouseState.y *= 2;   
         }
 
         Update(m_deltaTime);
@@ -92,7 +101,7 @@ void Application::Event(SDL_Event event)
 
 void Application::Update(double deltaTime)
 {
-    grid->Update(deltaTime, m_mouseX, m_mouseY);
+    grid->Update(deltaTime, m_mouseState);
 
     music->Update();
 }

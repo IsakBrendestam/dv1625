@@ -4,6 +4,7 @@
 #include "Debug.h"
 #include "Grid.h"
 #include "Music.h"
+#include "MouseState.h"
 
 #define W_WIDTH 850
 #define W_HEIGHT 850
@@ -17,7 +18,6 @@
     #define T_HEIGHT W_HEIGHT*2
     #define WINDOWS false
 #endif
-    
 
 class Application
 {
@@ -40,7 +40,7 @@ private:
     double m_deltaTime;
     double m_fps;
 
-    int m_mouseX, m_mouseY;
+    MouseState m_mouseState;
 
 private:
     Grid* grid;

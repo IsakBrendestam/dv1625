@@ -55,11 +55,11 @@ void Grid::InitGrid()
     m_backgroundRect.h = tileGridHeight + bgOffsetY + tileOffsetY/2;
 }
 
-void Grid::Update(double deltaTime, int mouseX, int mouseY)
+void Grid::Update(double deltaTime, MouseState mState)
 {
     for (int x = 0; x < xSize; x++)
         for (int y = 0; y < ySize; y++)
-            if (m_grid[x][y]->Hover(mouseX, mouseY))
+            if (m_grid[x][y]->Hover(mState))
                 m_grid[x][y]->ChangeColor(m_hoverColor);
             else    
                 m_grid[x][y]->ChangeColor(m_tileColor); 
