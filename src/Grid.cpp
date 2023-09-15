@@ -57,8 +57,13 @@ void Grid::InitGrid()
 
 void Grid::Update(double deltaTime, int mouseX, int mouseY)
 {
-    
-}
+    for (int x = 0; x < xSize; x++)
+        for (int y = 0; y < ySize; y++)
+            if (m_grid[x][y]->Hover(mouseX, mouseY))
+                m_grid[x][y]->ChangeColor(m_hoverColor);
+            else    
+                m_grid[x][y]->ChangeColor(m_tileColor); 
+    }
 
 void Grid::Draw(SDL_Renderer* renderer)
 {
