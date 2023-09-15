@@ -81,6 +81,8 @@ void Application::Initialize()
     int w = T_WIDTH*0.9;
     int h = T_HEIGHT*0.9;
     grid = new Grid(w, h, (T_WIDTH-w)/2, (T_HEIGHT-h)/2);
+
+    music = new Music("content/music.mp3");
 }
 
 void Application::Event(SDL_Event event)
@@ -91,6 +93,8 @@ void Application::Event(SDL_Event event)
 void Application::Update(double deltaTime)
 {
     grid->Update(deltaTime, m_mouseX, m_mouseY);
+
+    music->Update();
 }
 
 void Application::Draw()

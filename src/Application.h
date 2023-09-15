@@ -3,6 +3,7 @@
 #include <ctime>
 #include "Debug.h"
 #include "Grid.h"
+#include "Music.h"
 
 #define W_WIDTH 850
 #define W_HEIGHT 850
@@ -43,4 +44,5 @@ private:
 
 private:
     Grid* grid;
+    Music* music;
 };
