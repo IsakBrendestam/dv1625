@@ -2,4 +2,4 @@
 build/*
 build/objectFiles/*
 
-**/.DS_Store
+.DS_Store
