@@ -16,9 +16,8 @@ Cell::Cell(int xPos, int yPos, int width, int height, const SDL_Color color)
 
 bool Cell::Hover(MouseState mState)
 {
-    // This is unexpected behaviour
     if (mState.lBtnDown)
-        m_selected = !m_selected; 
+        m_selected = !m_selected;
 
     if (mState.x > m_rect.x && mState.x < m_rect.x + m_rect.w &&
         mState.y > m_rect.y && mState.y < m_rect.y + m_rect.h)
