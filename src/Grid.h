@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "Cell.h"
+#include "MouseState.h"
 
 #define xSize 17
 #define ySize 17
@@ -13,7 +14,7 @@ class Grid
 public:
     Grid(int gridWidth, int gridHeight, int xPos, int yPos);
     void Draw(SDL_Renderer* renderer);
-    void Update(double deltaTime, int mouseX, int mouseY);
+    void Update(double deltaTime, MouseState mState);
 
 private:
     void InitGrid();
