@@ -1,3 +1,6 @@
 # Ignoring all build files
 build/*
 build/objectFiles/*
+
+!build
+!build/objectFiles
